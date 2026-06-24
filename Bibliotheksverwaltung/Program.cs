@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            // Bücher zur Bibliothek hinzufügen
             Bibliothek bibliothek = new Bibliothek();
             bibliothek.BuchHinzufuegen("Der Herr der Ringe", "J.R.R. Tolkin", true);
             bibliothek.BuchHinzufuegen("Harry Potter", "J.K. Rowling", false);
@@ -12,24 +13,27 @@
             bibliothek.BuchHinzufuegen("1984", "George Orwell", false);
             bibliothek.BuchHinzufuegen("Die Verwandlung", "Franz Kafka", true);
             bibliothek.BuchHinzufuegen("Faust", "Johann Wolfgang von Goethe", true);
-            
 
 
-            
+
+            // Menü für die Bibliotheksverwaltung
             string auswahl = "";
-            while (auswahl != "5")
+            while (auswahl != "6")
             {
-                
+                Console.WriteLine("Was wollen sie Tun?");
                 Console.WriteLine("1. Buch hinzufügen");
                 Console.WriteLine("2. Bücher anzeigen");
                 Console.WriteLine("3. Buch ausleihen");
                 Console.WriteLine("4. Buch zurückgeben");
-                Console.WriteLine("5. Beenden");
-                Console.WriteLine("Was wollen sie Tun?");
+                Console.WriteLine("5. Buch suchen");
+                Console.WriteLine("6. Beenden");
+                
                 auswahl = Console.ReadLine();
 
+                // Auswahl des Benutzers verarbeiten
                 switch (auswahl)
                 {
+                    // Buch hinzufügen
                     case "1":
                     {
                       Console.WriteLine("geben Sie den Namen des Buches ein:");
@@ -40,15 +44,14 @@
                       bool verfuegbarkeit = bool.Parse(Console.ReadLine()!);
                       bibliothek.BuchHinzufuegen(name, autor, verfuegbarkeit);
                     } break;
-                      
+
+                    // Bücher anzeigen
                     case "2":
                     {
                      bibliothek.BuecherAnzeigen();
                     }break;
 
-
-
-
+                    // Buch ausleihen
                     case "3":
                     {
                      Console.WriteLine("geben Sie den Titel des Buches ein, das Sie ausleihen möchten:");
@@ -57,19 +60,25 @@
                      bibliothek.BuchAusleihen(titelAusleihen);
                     }break;
 
-
-
-
-
-
-                        case "4":
+                    // Buch zurückgeben
+                    case "4":
                     {
                      Console.WriteLine("gebene sie den Titel des Buches ein, das Sie zurückgeben möchten:");
                      string titelZurueckgeben = Console.ReadLine();
                      bibliothek.BuchZurueckgeben(titelZurueckgeben);
                     }break;
 
-                    case "5":
+                     case"5":
+                        { 
+                            Console.WriteLine("Titel eingeben:");
+                            string titelsuche = Console.ReadLine();
+                            bibliothek.BuchSuchen(titelsuche);
+
+                        }
+                        break;
+
+                    // Beenden des Programms
+                    case "6":
                     {
                      Console.WriteLine("Programm wird beendet.");
                     }break;

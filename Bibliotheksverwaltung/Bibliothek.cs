@@ -62,14 +62,25 @@ namespace Bibliotheksverwaltung
                     buch.Verfügbarkeit = true;
                     return;
                 }
-                
-                   
             }
         }
-
-
-
-
-
+        public void BuchSuchen(string titelsuche)
+        {
+            foreach (Buch buch in buecherListe)
+            {
+                if (buch.Titel == titelsuche && buch.Verfügbarkeit == true)
+                {
+                    Console.WriteLine("Buch {0} gefunden!",titelsuche);
+                }
+                    
+            }
+                Console.WriteLine("Das Buch {0} ist leider nicht verfügbar", titelsuche);
+                
+        }
+                           
+                
+            
     }
-}    
+}
+
+
