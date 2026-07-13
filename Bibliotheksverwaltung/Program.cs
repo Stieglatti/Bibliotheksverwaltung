@@ -18,15 +18,16 @@
 
             // Menü für die Bibliotheksverwaltung
             string auswahl = "";
-            while (auswahl != "6")
+            while (auswahl != "7")
             {
                 Console.WriteLine("Was wollen sie Tun?");
                 Console.WriteLine("1. Buch hinzufügen");
                 Console.WriteLine("2. Bücher anzeigen");
                 Console.WriteLine("3. Buch ausleihen");
                 Console.WriteLine("4. Buch zurückgeben");
-                Console.WriteLine("5. Buch suchen");
-                Console.WriteLine("6. Beenden");
+                Console.WriteLine("5. Buch entfernen");
+                Console.WriteLine("6. Buch suchen");
+                Console.WriteLine("7. Beenden");
                 
                 auswahl = Console.ReadLine();
 
@@ -63,22 +64,28 @@
                     // Buch zurückgeben
                     case "4":
                     {
-                     Console.WriteLine("gebene sie den Titel des Buches ein, das Sie zurückgeben möchten:");
+                     Console.WriteLine("Gebene sie den Titel des Buches ein, das Sie zurückgeben möchten:");
                      string titelZurueckgeben = Console.ReadLine();
                      bibliothek.BuchZurueckgeben(titelZurueckgeben);
                     }break;
 
-                     case"5":
-                        { 
-                            Console.WriteLine("Titel eingeben:");
-                            string titelsuche = Console.ReadLine();
-                            bibliothek.BuchSuchen(titelsuche);
+                     case "5":
+                     {
+                            Console.WriteLine("Welches Buch sollte entfernt werden bitte geben sie den Titel ein");
+                            string BuchEntfernen = Console.ReadLine();
+                            bibliothek.BuchEntfernen(BuchEntfernen);
+                     }break;
 
-                        }
-                        break;
+                     case"6":
+                     { 
+                      Console.WriteLine("Titel eingeben:");
+                      string titelsuche = Console.ReadLine();
+                      bibliothek.BuchSuchen(titelsuche);
+
+                     }break;
 
                     // Beenden des Programms
-                    case "6":
+                    case "7":
                     {
                      Console.WriteLine("Programm wird beendet.");
                     }break;

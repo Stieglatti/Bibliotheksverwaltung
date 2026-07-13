@@ -66,8 +66,10 @@ namespace Bibliotheksverwaltung
         }
         public void BuchSuchen(string titelsuche)
         {
+            
             foreach (Buch buch in buecherListe)
             {
+                // schaut ob der Titel exestiert und ob es Veerfügbar ist 
                 if (buch.Titel == titelsuche && buch.Verfügbarkeit == true)
                 {
                     Console.WriteLine("Buch {0} gefunden!",titelsuche);
@@ -77,9 +79,27 @@ namespace Bibliotheksverwaltung
                 Console.WriteLine("Das Buch {0} ist leider nicht verfügbar", titelsuche);
                 
         }
-                           
-                
+
+        
+        public void BuchEntfernen(string titel)
+        {
+            // for schleife startet bei buechliste 0 so lange i kleiner als buecherListe.Count ist geht er  durch die Liste
+            for (int i = 0; i < buecherListe.Count; i++)
+            {
+                // Wenn der Buchtitel gefunden wurde wird das buch aus der buecherliste entfernt
+                if (buecherListe[i].Titel == titel)
+                {
+                    buecherListe.RemoveAt(i);
+                    Console.WriteLine("Das Buch '{0}' wurde entfernt.", titel);
+                    return;
+                }
+            }
             
+            Console.WriteLine("Das Buch '{0}' wurde nicht gefunden.", titel);
+        }
+
+
+
     }
 }
 
