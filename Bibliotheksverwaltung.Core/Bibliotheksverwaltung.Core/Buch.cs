@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Bibliotheksverwaltung
+namespace Bibliotheksverwaltung.Core
 {
-    internal class Buch
+    public class Buch
     {
         // Klasse Buch mit den Eigenschaften Titel, Autor und Verfügbarkeit
         public string Titel { get; set; }

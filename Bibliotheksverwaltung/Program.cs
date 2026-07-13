@@ -1,4 +1,5 @@
-﻿ namespace Bibliotheksverwaltung
+﻿using Bibliotheksverwaltung.Core;
+namespace Bibliotheksverwaltung
 {
     internal class Program
     {

@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../Bibliotheksverwaltung.Core/Bibliotheksverwaltung.Core/Bibliotheksverwaltung.Core.csproj" />
+  <Project Path="../BibliotheksverwaltungGUI/BibliotheksverwaltungGUI/BibliotheksverwaltungGUI.csproj" />
+  <Project Path="Bibliotheksverwaltung.csproj" />
+</Solution>

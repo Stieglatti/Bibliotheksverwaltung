@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BibliotheksverwaltungGUI
+namespace Bibliotheksverwaltung.Core
 {
-
-    internal class Bibliothek
+    public class Bibliothek
     {
         // Liste von Büchern in der Bibliothek
         List<Buch> buecherListe = new List<Buch>();
@@ -18,7 +17,7 @@ namespace BibliotheksverwaltungGUI
             buecherListe.Add(buch);
 
         }
-
+        
         // Methode zum Anzeigen aller Bücher in der Bibliothek
         public void BuecherAnzeigen()
         {
@@ -29,7 +28,7 @@ namespace BibliotheksverwaltungGUI
                 Console.WriteLine("Titel: {0}, Autor: {1}, Verfügbarkeit: {2}", buch.Titel, buch.Autor, buch.Verfügbarkeit);
             }
         }
-
+        
         // Methode zum Ausleihen eines Buches
         public void BuchAusleihen(string titel)
         {
@@ -48,8 +47,8 @@ namespace BibliotheksverwaltungGUI
             // Wenn das Buch nicht verfügbar ist, wird eine entsprechende Meldung ausgegeben
             Console.WriteLine("Das Buch '{0}' ist nicht verfügbar.", titel);
         }
-
-
+        
+        
         // Methode zum Zurückgeben eines Buches
         public void BuchZurueckgeben(string titel)
         {
@@ -67,21 +66,21 @@ namespace BibliotheksverwaltungGUI
         }
         public void BuchSuchen(string titelsuche)
         {
-            // Durchsuchen der Bücherliste nach dem Buch mit dem angegebenen Titel
+            
             foreach (Buch buch in buecherListe)
             {
                 // schaut ob der Titel exestiert und ob es Veerfügbar ist 
                 if (buch.Titel == titelsuche && buch.Verfügbarkeit == true)
                 {
-                    Console.WriteLine("Buch {0} gefunden!", titelsuche);
+                    Console.WriteLine("Buch {0} gefunden!",titelsuche);
                 }
-
+                    
             }
-            Console.WriteLine("Das Buch {0} ist leider nicht verfügbar", titelsuche);
-
+                Console.WriteLine("Das Buch {0} ist leider nicht verfügbar", titelsuche);
+                
         }
 
-
+        
         public void BuchEntfernen(string titel)
         {
             // for schleife startet bei buechliste 0 so lange i kleiner als buecherListe.Count ist geht er  durch die Liste
@@ -95,14 +94,11 @@ namespace BibliotheksverwaltungGUI
                     return;
                 }
             }
-
+            
             Console.WriteLine("Das Buch '{0}' wurde nicht gefunden.", titel);
         }
 
-        public List<Buch> GibAlleBuecher()
-        {
-            return buecherListe;
-        }
+
 
     }
 }

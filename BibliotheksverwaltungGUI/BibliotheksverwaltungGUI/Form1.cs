@@ -1,3 +1,5 @@
+using Bibliotheksverwaltung.Core;
+
 namespace BibliotheksverwaltungGUI
 {
     public partial class Form1 : Form

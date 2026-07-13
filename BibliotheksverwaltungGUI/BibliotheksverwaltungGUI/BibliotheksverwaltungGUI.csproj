@@ -8,4 +8,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Bibliotheksverwaltung.Core\Bibliotheksverwaltung.Core\Bibliotheksverwaltung.Core.csproj" />
+    <ProjectReference Include="..\..\Bibliotheksverwaltung\Bibliotheksverwaltung.csproj" />
+  </ItemGroup>
+
 </Project>
