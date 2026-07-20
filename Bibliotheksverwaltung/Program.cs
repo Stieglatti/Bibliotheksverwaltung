@@ -50,7 +50,7 @@ namespace Bibliotheksverwaltung
                     // Bücher anzeigen
                     case "2":
                     {
-                     bibliothek.BuecherAnzeigen();
+                     bibliothek.BuecherAusgabe();
                     }break;
 
                     // Buch ausleihen
