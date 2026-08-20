@@ -11,29 +11,6 @@ namespace BibliotheksverwaltungGUI
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-
         private void buech_entfernen(object sender, EventArgs e)
         {
             int selectedIndex = BuecherAnzeige.SelectedIndex;
@@ -52,6 +29,13 @@ namespace BibliotheksverwaltungGUI
         {
             string titel = txtTitel.Text;
             string autor = txtAutor.Text;
+            if (titel.Length == 0 && autor.Length == 0)
+            {
+                MessageBox.Show("Kein Buch oder Autor eingetragen");
+
+                return;
+            }
+            ;
             bibliothek.BuchHinzufuegen(titel, autor, true);
             txtTitel.Clear();
             txtAutor.Clear();
@@ -91,16 +75,35 @@ namespace BibliotheksverwaltungGUI
             string titel = TxtSuche.Text;
             Buch gefundenesBuch = BuchSuchen(titel);
         }
-
+        //
         private void Search_button_Click(object sender, EventArgs e)
         {
-            
+
             string titel = TxtSuche.Text;
             Buch gefundenesBuch = BuchSuchen(titel);
+            // Überprüfen, ob das Buch gefunden wurde
+            // Wenn das Buch nicht gefunden wurde, eine Meldung anzeigen
+            if (gefundenesBuch == null)
+            {
+                MessageBox.Show("Das Buch " + titel + " wurde nicht gefunden.");
+                TxtSuche.Clear();
+                return;
+            }
+            // Wenn das Buch gefunden wurde, eine Meldung anzeigen
             MessageBox.Show("Das Buch " + gefundenesBuch.Titel + " wurde gefunden.");
             TxtSuche.Clear();
         }
 
+        private void speichern_button_Click(object sender, EventArgs e)
+        {
+            bibliothek.Speichern();
+        }
+
+        private void Laden_button_Click(object sender, EventArgs e)
+        {
+            bibliothek.Laden();
+            AnzeigeAktualisieren();
+        }
     }
 }
 

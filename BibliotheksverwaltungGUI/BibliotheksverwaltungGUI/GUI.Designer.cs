@@ -38,6 +38,8 @@
             buch_suche = new Label();
             TxtSuche = new TextBox();
             Search_button = new Button();
+            speichern_button = new Button();
+            Laden_button = new Button();
             SuspendLayout();
             // 
             // label1
@@ -48,7 +50,7 @@
             label1.Size = new Size(62, 35);
             label1.TabIndex = 0;
             label1.Text = "Titel:";
-            label1.Click += label1_Click;
+            
             // 
             // label2
             // 
@@ -59,7 +61,7 @@
             label2.Size = new Size(75, 42);
             label2.TabIndex = 1;
             label2.Text = "Autor:";
-            label2.Click += label2_Click;
+            
             // 
             // txtTitel
             // 
@@ -68,7 +70,7 @@
             txtTitel.Name = "txtTitel";
             txtTitel.Size = new Size(118, 35);
             txtTitel.TabIndex = 2;
-            txtTitel.TextChanged += textBox1_TextChanged;
+            
             // 
             // txtAutor
             // 
@@ -91,7 +93,7 @@
             // BuecherAnzeige
             // 
             BuecherAnzeige.FormattingEnabled = true;
-            BuecherAnzeige.Location = new Point(190, 300);
+            BuecherAnzeige.Location = new Point(61, 292);
             BuecherAnzeige.Name = "BuecherAnzeige";
             BuecherAnzeige.Size = new Size(291, 169);
             BuecherAnzeige.TabIndex = 5;
@@ -137,11 +139,33 @@
             Search_button.UseVisualStyleBackColor = true;
             Search_button.Click += Search_button_Click;
             // 
+            // speichern_button
+            // 
+            speichern_button.Location = new Point(512, 292);
+            speichern_button.Name = "speichern_button";
+            speichern_button.Size = new Size(130, 46);
+            speichern_button.TabIndex = 10;
+            speichern_button.Text = "Speichern";
+            speichern_button.UseVisualStyleBackColor = true;
+            speichern_button.Click += speichern_button_Click;
+            // 
+            // Laden_button
+            // 
+            Laden_button.Location = new Point(512, 354);
+            Laden_button.Name = "Laden_button";
+            Laden_button.Size = new Size(130, 45);
+            Laden_button.TabIndex = 11;
+            Laden_button.Text = "Laden";
+            Laden_button.UseVisualStyleBackColor = true;
+            Laden_button.Click += Laden_button_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1277, 674);
+            Controls.Add(Laden_button);
+            Controls.Add(speichern_button);
             Controls.Add(Search_button);
             Controls.Add(TxtSuche);
             Controls.Add(buch_suche);
@@ -154,7 +178,7 @@
             Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
-            Load += Form1_Load;
+            
             ResumeLayout(false);
             PerformLayout();
         }
@@ -171,5 +195,7 @@
         private Label buch_suche;
         private TextBox TxtSuche;
         private Button Search_button;
+        private Button speichern_button;
+        private Button Laden_button;
     }
 }

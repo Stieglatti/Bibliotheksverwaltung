@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json;
+using System.IO;
 
 namespace Bibliotheksverwaltung.Core
 {
@@ -13,7 +15,6 @@ namespace Bibliotheksverwaltung.Core
         {
             get { return BuecherListe; }
         }
-
 
         // Methode zum Hinzufügen eines Buches zur Bibliothek
         public void BuchHinzufuegen(string titel, string autor, bool verfügbarkeit)
@@ -104,8 +105,24 @@ namespace Bibliotheksverwaltung.Core
             Console.WriteLine("Das Buch '{0}' wurde nicht gefunden.", titel);
         }
 
+        public void Speichern()
+        {
+            // Wandelt die Bücherliste in einen JSON-Text um
+            string json = JsonSerializer.Serialize(BuecherListe);
+            
+            // Schreibt den JSON-Text in die Datei "buecher.json"
+            File.WriteAllText("buecher.json", json);
+        }
 
+        public void Laden()
+        {
+            // Liest den Inhalt der JSON-Datei als Text ein.
+            string json = File.ReadAllText("buecher.json");
 
+            // Wandelt den JSON-Text wieder in eine Bücherliste um.
+            // Falls keine Liste vorhanden ist, wird eine leere Liste erstellt.
+            BuecherListe = JsonSerializer.Deserialize<List<Buch>>(json) ?? new List<Buch>();
+        }
     }
 }
 
